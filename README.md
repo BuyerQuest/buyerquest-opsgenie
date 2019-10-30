@@ -12,11 +12,15 @@ gem 'buyerquest-opsgenie'
 
 And then execute:
 
-    $ bundle install
+```shell
+$ bundle install
+```
 
-Or install it yourself as:
+Or install it directly:
 
-    $ gem install buyerquest-opsgenie
+```shell
+$ gem install buyerquest-opsgenie
+```
 
 ## Usage
 
@@ -26,13 +30,14 @@ Example:
 require 'buyerquest/opsgenie'
 
 # Initialise client singleton
-Buyerquest::Opsgenie::Client.init('****') 
-# alternatively export OPSG_API_KEY to the runtime environment and then this one
-# Buyerquest::Opsgenie::Client.init 
+Buyerquest::Opsgenie::Client.init 'your-api-key-here'
+# alternatively export OPSG_API_KEY to the runtime environment and then call without any arguments:
+# Buyerquest::Opsgenie::Client.init
 
-# Prepare alert object instance 
-alert_payload = {message: "I'm alert from buyerquest-opsgenie gem",alias: 'no-duplication', description: 'buyerquest-opsgenie gem alert'}
-test_alert = Buyerquest::Opsgenie::Alert.new(alert_payload)
+# Prepare alert object instance
+test_alert = Buyerquest::Opsgenie::Alert.new(message: "I'm an alert from the buyerquest-opsgenie gem",
+                                             alias: 'no-duplication',
+                                             description: 'buyerquest-opsgenie gem alert')
 
 # Fire alert
 test_alert.create
@@ -43,15 +48,17 @@ test_alert.create
 require 'buyerquest/opsgenie'
 
 # Initialise client singleton
-Buyerquest::Opsgenie::Client.init('****') 
-# alternatively export OPSG_API_KEY to the runtime environment and then this one
-# Buyerquest::Opsgenie::Client.init 
+Buyerquest::Opsgenie::Client.init 'your-api-key-here'
+# alternatively export OPSG_API_KEY to the runtime environment and then call without any arguments:
+# Buyerquest::Opsgenie::Client.init
 
-# Prepare alert object instance 
-heartbeat_payload = {name: 'Test heartbeat'}
-test_heartbeat = Buyerquest::Opsgenie::Heartbeat.new(heartbeat_payload)
+# Prepare alert object instance
+test_heartbeat = Buyerquest::Opsgenie::Heartbeat.new(name: 'Test heartbeat')
 
 # Start heartbeat
 test_heartbeat.start
 ```
 
+## Testing
+
+Run `rake spec` to start the test suite.
