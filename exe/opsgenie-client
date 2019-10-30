@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require "buyerquest/opsgenie"
+
+puts "Not implemented for now"
