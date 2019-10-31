@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    buyerquest-opsgenie (0.1.0)
+    buyerquest-opsgenie (0.1.1)
       rest-client (~> 2.0)
 
 GEM
