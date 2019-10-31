@@ -24,6 +24,11 @@ module Buyerquest
           response = RestClient::Request.execute(request)
         rescue RestClient::NotFound => err
           return nil
+        rescue StandardError => err
+          puts "[OpsGenie Error] Unhandled response error"
+          puts "Request payload:"
+          puts request[:payload]
+          raise err
         end
         JSON.parse(response)
       end
