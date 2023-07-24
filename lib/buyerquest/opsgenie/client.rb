@@ -10,7 +10,8 @@ module Buyerquest
       end
 
       def self.execute(opsgenie_request)
-        uri = URI::encode(opsgenie_request[:uri])
+        require 'addressable/uri'
+        uri = Addressable::URI.escape(opsgenie_request[:uri])
         method = opsgenie_request[:method].upcase
         payload = opsgenie_request[:payload]
         raise "[OpsGenie Error] Unknown method" unless %w(GET POST PUT PATCH DELETE).include? method
